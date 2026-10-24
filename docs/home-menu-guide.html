@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WRONG WAY RIDER — Easy Guide</title>
+<style>
+  :root{
+    --bg:#0d0620; --card:#1a0f38; --line:rgba(255,255,255,.16);
+    --pink:#ff4da6; --gold:#ffe066; --cyan:#67e8f9; --green:#4ade80;
+    --txt:#ffffff; --dim:rgba(255,255,255,.72);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1000px 420px at 50% -10%, rgba(255,77,166,.18), transparent 60%),
+      var(--bg);
+    color:var(--txt);
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55; padding-bottom:3rem; font-size:16px;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 1rem}
+  .disp{font-family:Impact,"Arial Black","Segoe UI",sans-serif;letter-spacing:.05em}
+
+  header{text-align:center;padding:2.6rem 0 1rem}
+  .logo1{font-size:clamp(2rem,8vw,3.4rem);line-height:.95;color:var(--pink);
+    text-shadow:0 0 18px rgba(255,77,166,.75)}
+  .logo2{font-size:clamp(2rem,8vw,3.4rem);line-height:.95;color:var(--gold);
+    text-shadow:0 0 18px rgba(255,224,102,.7)}
+  .tag{display:inline-block;margin-top:.8rem;padding:.3rem 1rem;border:1px solid var(--line);
+    border-radius:999px;background:rgba(0,0,0,.45);font-size:.78rem;font-weight:800;letter-spacing:.25em;color:var(--dim)}
+  .sub{margin:1rem auto 0;max-width:520px;color:var(--dim);font-size:1.05rem}
+  .sub b{color:#fff}
+
+  section{margin:2.4rem 0}
+  h2{font-size:1.45rem;color:var(--gold);margin-bottom:.9rem;text-align:center}
+  h2 small{display:block;font-family:"Segoe UI",system-ui,sans-serif;font-size:.85rem;font-weight:600;
+    color:var(--dim);letter-spacing:0;margin-top:.2rem}
+
+  /* big number steps */
+  .step{display:flex;gap:1rem;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+    border-radius:18px;padding:1rem 1.1rem;margin:.7rem 0}
+  .step .n{flex-shrink:0;width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    font-family:Impact,"Arial Black",sans-serif;font-size:1.4rem;color:#fff;
+    background:linear-gradient(160deg,#ff4da6,#a21caf);box-shadow:0 4px 0 rgba(0,0,0,.4)}
+  .step p{font-size:1.08rem;padding-top:.35rem}
+  .step p b{color:var(--gold)}
+  .step p small{display:block;font-size:.9rem;color:var(--dim);margin-top:.15rem}
+
+  .note{background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.35);border-radius:14px;
+    padding:.9rem 1.1rem;margin:1rem 0;font-size:1rem;text-align:center}
+  .note b{color:var(--green)}
+
+  /* mini tiles */
+  .tile{display:flex;align-items:center;gap:.7rem;border-radius:14px;padding:.55rem .8rem .55rem .55rem;
+    margin:.45rem 0;border:1px solid rgba(255,255,255,.14)}
+  .tile .sw{flex-shrink:0;width:52px;height:44px;border-radius:10px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;font-family:Impact,"Arial Black",sans-serif;font-size:.5rem;
+    color:#fff;box-shadow:0 3px 0 rgba(0,0,0,.45);text-align:center;line-height:1.1;padding:2px}
+  .tile .sw span{font-size:.62rem}
+  .tile .what{font-size:1rem}
+  .tile .what b{display:block;font-size:1.02rem}
+  .tile .what span{color:var(--dim);font-size:.95rem}
+  .t-shop{background:linear-gradient(160deg,#ff4da6,#a21caf)}
+  .t-garage{background:linear-gradient(160deg,#38bdf8,#1d4ed8)}
+  .t-career{background:linear-gradient(160deg,#fb923c,#9a3412)}
+  .t-upg{background:linear-gradient(160deg,#a78bfa,#6d28d9)}
+  .t-missions{background:linear-gradient(160deg,#34d399,#047857)}
+  .t-daily{background:linear-gradient(160deg,#fbbf24,#c2410c)}
+  .t-weekly{background:linear-gradient(160deg,#e879f9,#7e22ce)}
+  .t-ranks{background:linear-gradient(160deg,#f59e0b,#92400e)}
+  .t-route{background:linear-gradient(160deg,#22d3ee,#0e7490)}
+  .t-guide{background:linear-gradient(160deg,#64748b,#1e293b)}
+  .t-replay{background:linear-gradient(160deg,#818cf8,#3730a3)}
+  .t-play{background:linear-gradient(180deg,#4ade80,#15803d)}
+  .t-neutral{background:#241646}
+
+  h3{font-size:1.05rem;color:var(--cyan);margin:1.4rem 0 .5rem;letter-spacing:.04em}
+  h3:first-child{margin-top:0}
+
+  table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:1rem}
+  th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.45);
+    padding:.5rem .5rem;border-bottom:1px solid var(--line)}
+  td{padding:.6rem .5rem;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top}
+  td:first-child{white-space:nowrap;font-weight:800}
+  .mode{color:var(--gold)}
+  kbd{display:inline-block;min-width:1.6em;text-align:center;padding:.1rem .45rem;border-radius:6px;
+    border:1px solid rgba(255,255,255,.3);border-bottom-width:3px;background:#241646;color:#fff;
+    font-family:ui-monospace,Consolas,monospace;font-size:.85rem;font-weight:700}
+
+  .good{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1rem 1.2rem}
+  .good li{margin:.55rem 0 .55rem 1.1rem;font-size:1rem}
+  .good li b{color:var(--gold)}
+
+  footer{text-align:center;color:rgba(255,255,255,.4);font-size:.8rem;letter-spacing:.1em;margin-top:2.5rem}
+  @media (max-width:640px){
+    table{display:block;overflow-x:auto}
+    .step p{font-size:1rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="logo1 disp">WRONG WAY</div>
+  <div class="logo2 disp">RIDER</div>
+  <div class="tag">EASY GUIDE</div>
+  <p class="sub">Every button on the home screen, in plain words.<br><b>You can't break anything — just tap and try.</b></p>
+</header>
+
+<!-- ============ 01 ============ -->
+<section>
+  <h2>PLAY IN 3 TAPS<small>This is all you need. Really.</small></h2>
+  <div class="step"><div class="n">1</div><p><b>Tap the green PLAY button</b> (bottom-right).<small>You start riding immediately. No setup needed.</small></p></div>
+  <div class="step"><div class="n">2</div><p><b>Move and jump.</b><small>Phone: swipe left/right to move, tap to jump.<br>Keyboard: <kbd>A</kbd> <kbd>D</kbd> to move, <kbd>Space</kbd> to jump.</small></p></div>
+  <div class="step"><div class="n">3</div><p><b>Crash? Get coins and tips anyway.</b><small>Read the tip, then tap PLAY again. That's the whole game loop.</small></p></div>
+  <div class="note"><b>That's it — you know how to play.</b><br>Everything below is optional. Come back when you're curious.</div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section>
+  <h2>THE SCREEN, MADE SIMPLE<small>Where things live</small></h2>
+  <div class="tile"><div class="sw t-neutral">TOP</div><div class="what"><b>Top row = your stuff</b><span>Money, level, sound, settings</span></div></div>
+  <div class="tile"><div class="sw t-neutral">LEFT</div><div class="what"><b>Left side = spend &amp; upgrade</b><span>Shop, garage, jobs, missions</span></div></div>
+  <div class="tile"><div class="sw t-neutral">RIGHT</div><div class="what"><b>Right side = special stuff</b><span>Daily runs, scores, your own tracks</span></div></div>
+  <div class="tile"><div class="sw t-neutral">BOTTOM</div><div class="what"><b>Bottom = start playing</b><span>Mode picker and the big PLAY button</span></div></div>
+  <div class="note"><b>See a red number badge?</b> That means free stuff is waiting inside. Just tap it.</div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section>
+  <h2>EVERY BUTTON, ONE LINE<small>Tap the picture, read the line</small></h2>
+
+  <h3>Top row (your stuff)</h3>
+  <div class="tile"><div class="sw t-neutral">YOU</div><div class="what"><b>Your name + level</b><span>Tap for your stats, photos, and save rescue</span></div></div>
+  <div class="tile"><div class="sw t-shop">COINS</div><div class="what"><b>Your money</b><span>Tap to open the shop</span></div></div>
+  <div class="tile"><div class="sw t-neutral">TIX</div><div class="what"><b>Rescue tickets</b><span>Free "undo" when you crash (max 3)</span></div></div>
+  <div class="tile"><div class="sw t-neutral">FIRE</div><div class="what"><b>Hot streak</b><span>Beat your last score to keep this coin bonus</span></div></div>
+  <div class="tile"><div class="sw t-upg">BOX</div><div class="what"><b>Crates</b><span>Free mystery prizes — tap to open them</span></div></div>
+  <div class="tile"><div class="sw t-neutral">gear</div><div class="what"><b>Sound · Install · Settings</b><span>Mute, add to home screen, and all options</span></div></div>
+
+  <h3>Left side (spend &amp; upgrade)</h3>
+  <div class="tile"><div class="sw t-shop">SHOP</div><div class="what"><b>Shop</b><span>Buy bikes, helmets, trails, horns with coins</span></div></div>
+  <div class="tile"><div class="sw t-garage">GARAGE</div><div class="what"><b>Garage</b><span>Change your look, paint your bike, build a horn</span></div></div>
+  <div class="tile"><div class="sw t-career">CAREER</div><div class="what"><b>Career</b><span>12 delivery jobs. Earn stars, unlock the map</span></div></div>
+  <div class="tile"><div class="sw t-upg">UPGRADE</div><div class="what"><b>Upgrades</b><span>Open crates and buy permanent perks</span></div></div>
+  <div class="tile"><div class="sw t-missions">MISSIONS</div><div class="what"><b>Missions</b><span>3 easy daily tasks = free coins</span></div></div>
+
+  <h3>Right side (special stuff)</h3>
+  <div class="tile"><div class="sw t-daily">DAILY</div><div class="what"><b>Daily</b><span>Everyone in the world gets the same track today</span></div></div>
+  <div class="tile"><div class="sw t-weekly">WEEKLY</div><div class="what"><b>Weekly</b><span>Crazy rules this week — only 3 tries</span></div></div>
+  <div class="tile"><div class="sw t-ranks">RANKS</div><div class="what"><b>Ranks</b><span>Your best scores</span></div></div>
+  <div class="tile"><div class="sw t-route">ROUTE LAB</div><div class="what"><b>Route Lab</b><span>Build your own track, practice tricky spots</span></div></div>
+  <div class="tile"><div class="sw t-guide">GUIDE</div><div class="what"><b>Field Guide</b><span>Collect all 9 vehicles + find hidden relics</span></div></div>
+  <div class="tile"><div class="sw t-replay">REPLAY</div><div class="what"><b>Replay</b><span>Watch your last run back</span></div></div>
+
+  <h3>Bottom (start playing)</h3>
+  <div class="tile"><div class="sw t-neutral">TASK</div><div class="what"><b>Mission bar</b><span>Shows your next goal — do this in your next run</span></div></div>
+  <div class="tile"><div class="sw t-neutral">MODE</div><div class="what"><b>Game mode</b><span>Pick how to play (see list below)</span></div></div>
+  <div class="tile"><div class="sw t-play">PLAY</div><div class="what"><b>PLAY</b><span>Start! (Keyboard: press <kbd>Space</kbd> instead)</span></div></div>
+  <div class="tile"><div class="sw t-garage">&lt; &gt;</div><div class="what"><b>Your bike name</b><span>Arrows swap bikes fast. Tap the name to customize</span></div></div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section>
+  <h2>WHICH MODE SHOULD I PICK?<small>Tap GAME MODE (bottom-left) to choose</small></h2>
+  <table>
+    <tr><th>Mode</th><th>What it is</th><th>Pick it when...</th></tr>
+    <tr><td class="mode">Classic</td><td>Endless ride. Race your own ghost.</td><td>First time. <b>Start here.</b></td></tr>
+    <tr><td class="mode">Daily</td><td>Same track as everyone today</td><td>You want to compare with friends</td></tr>
+    <tr><td class="mode">Weekly</td><td>Weird bonus rules, 3 tries</td><td>You want a challenge</td></tr>
+    <tr><td class="mode">Time Trial</td><td>60 seconds. Go!</td><td>You have one minute</td></tr>
+    <tr><td class="mode">Zen</td><td>No crashing. Very chill.</td><td>You just want to relax</td></tr>
+    <tr><td class="mode">Duel</td><td>Race a friend to the finish</td><td>2 players, one keyboard</td></tr>
+    <tr><td class="mode">Co-op</td><td>Ride together, share the cargo</td><td>2 players, teamwork</td></tr>
+    <tr><td class="mode">Cup</td><td>Best of 3 races, 2 names</td><td>Mini tournament night</td></tr>
+    <tr><td class="mode">Practice</td><td>Nothing can kill you</td><td>Learning your own track</td></tr>
+    <tr><td class="mode">Route</td><td>Delivery jobs with a story</td><td>You want a reason to ride</td></tr>
+    <tr><td class="mode">Boss Rush</td><td>Big bosses, back to back</td><td>You want to fight the helicopter</td></tr>
+  </table>
+  <div class="note"><b>Difficulty</b> is on the same screen: <b>Chill</b> (easy, no trucks) · <b>Normal</b> · <b>Insane</b> (fast!)</div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section>
+  <h2>"WHERE DO I...?"<small>The stuff that hides a little deeper</small></h2>
+  <table>
+    <tr><th>I want to...</th><th>Go to</th></tr>
+    <tr><td>Change my look</td><td><b>Garage</b> (left side)</td></tr>
+    <tr><td>Paint my own bike design</td><td><b>Garage</b> → Vinyl Painter (bottom)</td></tr>
+    <tr><td>Make my own horn sound</td><td><b>Garage</b> → Horn Studio (bottom)</td></tr>
+    <tr><td>Build my own track</td><td><b>Route Lab</b> → Track Editor</td></tr>
+    <tr><td>Take a photo of my run</td><td><b>Your name</b> (top-left) → Photo Mode</td></tr>
+    <tr><td>Change the screen colors</td><td>Press <kbd>P</kbd> during a run → Themes</td></tr>
+    <tr><td>Get my save back</td><td><b>Your name</b> (top-left) → Save Recovery</td></tr>
+    <tr><td>Read the hidden lore</td><td><b>Field Guide</b> (right side)</td></tr>
+    <tr><td>See the city map</td><td><b>Career</b> → District Map (bottom)</td></tr>
+  </table>
+</section>
+
+<!-- ============ 06 ============ -->
+<section>
+  <h2>BUTTONS WHILE RIDING<small>Keyboard only — phone players just swipe and tap</small></h2>
+  <table>
+    <tr><th>I want to...</th><th>Press</th></tr>
+    <tr><td>Move</td><td><kbd>A</kbd> <kbd>D</kbd> (or arrow keys)</td></tr>
+    <tr><td>Jump</td><td><kbd>Space</kbd> or <kbd>W</kbd></td></tr>
+    <tr><td>Drop down fast</td><td><kbd>S</kbd></td></tr>
+    <tr><td>Score my combo (BANK it)</td><td><kbd>B</kbd> — do this often!</td></tr>
+    <tr><td>Nitro speed boost</td><td><kbd>N</kbd></td></tr>
+    <tr><td>Trick flip</td><td><kbd>F</kbd></td></tr>
+    <tr><td>Honk</td><td><kbd>H</kbd></td></tr>
+    <tr><td>Pause</td><td><kbd>P</kbd> or <kbd>Esc</kbd></td></tr>
+  </table>
+  <div class="note"><b>Two players?</b> Player 1 uses <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>, Player 2 uses the arrow keys. Pick Duel or Co-op mode first.</div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section>
+  <h2>GOOD TO KNOW<small>5 things that make the game better</small></h2>
+  <div class="good">
+    <li><b>Red badges = free stuff.</b> Always tap them before you ride.</li>
+    <li><b>Combos only count when you BANK them</b> (<kbd>B</kbd>). An unbanked combo is lost when you crash.</li>
+    <li><b>Your game saves itself</b> on this device and works offline. Nothing to do.</li>
+    <li><b>Combo rule:</b> near-misses and tricks build your combo. Bank it before a hard part!</li>
+    <li><b>Play daily</b> to grow your streak — it multiplies your score.</li>
+  </div>
+</section>
+
+<footer>WRONG WAY RIDER · EASY GUIDE · HAVE FUN, RIDE WRONG WAY</footer>
+
+</div>
+</body>
+</html>

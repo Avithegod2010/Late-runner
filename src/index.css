@@ -1,0 +1,462 @@
+@import "tailwindcss";
+
+:root {
+  --font-display: "Orbitron", monospace;
+  --font-body: "Rubik", system-ui, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #140a2e;
+  font-family: var(--font-body);
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  /* NOTE: touch-action is NOT set to "none" here anymore. Setting it on an
+     ancestor disables native touch scrolling for EVERY descendant (browsers
+     intersect ancestor values), which made the Settings modal and every other
+     scrollable panel impossible to scroll on touch devices. Gameplay gestures
+     are locked down on the canvas itself instead. */
+}
+
+/* The game canvas owns all in-run gestures: block browser panning/zooming
+   here and only here. */
+canvas {
+  touch-action: none;
+}
+
+/* UI scroll containers must always pan on touch. */
+.overflow-y-auto {
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.overflow-x-auto {
+  touch-action: pan-x;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ---------- animations ---------- */
+@keyframes titlePulse {
+  0%,
+  100% {
+    text-shadow:
+      0 0 18px rgba(255, 64, 160, 0.9),
+      0 0 60px rgba(255, 64, 160, 0.45),
+      0 4px 0 #7a0d4b;
+    transform: translateY(0);
+  }
+  50% {
+    text-shadow:
+      0 0 28px rgba(255, 64, 160, 1),
+      0 0 90px rgba(255, 64, 160, 0.7),
+      0 4px 0 #7a0d4b;
+    transform: translateY(-3px);
+  }
+}
+.title-glow {
+  animation: titlePulse 2.2s ease-in-out infinite;
+}
+
+@keyframes blinker {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  61%,
+  100% {
+    opacity: 0.25;
+  }
+}
+.blink {
+  animation: blinker 1.1s step-end infinite;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.82) translateY(24px);
+  }
+  60% {
+    transform: scale(1.04) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.pop-in {
+  animation: popIn 0.42s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.3s ease-out both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes bestFlash {
+  0%,
+  100% {
+    transform: scale(1) rotate(-2deg);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.12) rotate(2deg);
+    filter: brightness(1.4);
+  }
+}
+.best-flash {
+  animation: bestFlash 0.8s ease-in-out infinite;
+}
+
+@keyframes comboBump {
+  0% {
+    transform: scale(1.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.combo-bump {
+  animation: comboBump 0.25s ease-out both;
+}
+
+.btn-neon {
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    filter 0.12s ease;
+}
+.btn-neon:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.12);
+}
+.btn-neon:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1.5px rgba(20, 5, 40, 0.9);
+  paint-order: stroke fill;
+}
+
+/* ================= animated icon set ================= */
+.ico {
+  display: block;
+  overflow: visible;
+}
+.ico g,
+.ico circle,
+.ico rect {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes icoFlip {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  45% {
+    transform: scaleX(0.1);
+  }
+  50% {
+    transform: scaleX(-0.1);
+  }
+  95% {
+    transform: scaleX(-1);
+  }
+}
+.ico-flip {
+  animation: icoFlip 2.6s ease-in-out infinite;
+}
+
+@keyframes icoWheel {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.ico-wheel {
+  transform-box: view-box !important;
+  animation: icoWheel 0.75s linear infinite;
+}
+.ico-spin-slow {
+  animation: icoWheel 4.5s linear infinite;
+}
+
+@keyframes icoBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+.ico-bob {
+  animation: icoBob 0.5s ease-in-out infinite;
+}
+
+@keyframes icoNeedle {
+  0%,
+  100% {
+    transform: rotate(-26deg);
+  }
+  55% {
+    transform: rotate(32deg);
+  }
+}
+.ico-needle {
+  transform-box: view-box !important;
+  transform-origin: 24px 34px;
+  animation: icoNeedle 1.6s cubic-bezier(0.5, 0, 0.3, 1) infinite;
+}
+
+@keyframes icoBlink {
+  0%,
+  44% {
+    opacity: 1;
+  }
+  45%,
+  100% {
+    opacity: 0.25;
+  }
+}
+.ico-blink {
+  animation: icoBlink 0.75s step-end infinite;
+}
+
+@keyframes icoShine {
+  0% {
+    transform: translateX(-16px);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.9;
+  }
+  70%,
+  100% {
+    transform: translateX(34px);
+    opacity: 0;
+  }
+}
+.ico-shine {
+  transform-box: view-box !important;
+  animation: icoShine 2.6s ease-in-out infinite;
+}
+
+@keyframes icoFlicker {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+  30% {
+    transform: scaleY(1.07) scaleX(0.95);
+  }
+  60% {
+    transform: scaleY(0.95) scaleX(1.04);
+  }
+}
+.ico-flicker {
+  transform-origin: bottom center;
+  animation: icoFlicker 0.42s ease-in-out infinite;
+}
+
+@keyframes icoWaves {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateX(-1px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(1px);
+  }
+}
+.ico-waves {
+  animation: icoWaves 1.1s ease-in-out infinite;
+}
+
+@keyframes icoWobble {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+.ico-wobble {
+  animation: icoWobble 1.6s ease-in-out infinite;
+}
+
+@keyframes icoNudgeL {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateX(-3px);
+    opacity: 1;
+  }
+}
+@keyframes icoNudgeR {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+}
+.ico-nudge-l {
+  transform-box: view-box !important;
+  animation: icoNudgeL 1.2s ease-in-out infinite;
+}
+.ico-nudge-r {
+  transform-box: view-box !important;
+  animation: icoNudgeR 1.2s ease-in-out infinite 0.6s;
+}
+
+@keyframes icoSwipe {
+  0%,
+  100% {
+    transform: translateX(-5px) rotate(-7deg);
+  }
+  50% {
+    transform: translateX(5px) rotate(7deg);
+  }
+}
+.ico-swipe {
+  transform-box: view-box !important;
+  animation: icoSwipe 1.5s ease-in-out infinite;
+}
+
+@keyframes icoHop {
+  0%,
+  100% {
+    transform: translateY(4px) scaleY(0.92);
+  }
+  40% {
+    transform: translateY(-9px) scaleY(1.06);
+  }
+}
+.ico-hop {
+  transform-box: view-box !important;
+  animation: icoHop 1.1s cubic-bezier(0.3, 0, 0.4, 1) infinite;
+}
+
+@keyframes icoPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+.ico-pulse-a {
+  animation: icoPulse 1.5s ease-in-out infinite;
+}
+.ico-pulse-b {
+  animation: icoPulse 1.5s ease-in-out infinite 0.5s;
+}
+.ico-pulse-c {
+  animation: icoPulse 1.5s ease-in-out infinite 1s;
+}
+
+/* ================= home screen ================= */
+@keyframes playPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(134, 239, 172, 0.55), 0 7px 0 #0f5a2a, 0 14px 30px rgba(0, 0, 0, 0.45);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(134, 239, 172, 0), 0 7px 0 #0f5a2a, 0 14px 30px rgba(0, 0, 0, 0.45);
+    transform: translateY(-2px);
+  }
+}
+.play-pulse {
+  animation: playPulse 1.8s ease-out infinite;
+}
+.play-pulse:active {
+  animation: none;
+  transform: translateY(4px) scale(0.98);
+  box-shadow: 0 2px 0 #0f5a2a;
+}
+
+@keyframes tileShine {
+  0% { transform: translateX(-160%) skewX(-20deg); }
+  55%, 100% { transform: translateX(320%) skewX(-20deg); }
+}
+.tile-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 38%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  animation: tileShine 4.2s ease-in-out infinite;
+  pointer-events: none;
+}
+.tile-shine:nth-child(2)::after { animation-delay: 0.5s; }
+.tile-shine:nth-child(3)::after { animation-delay: 1s; }
+.tile-shine:nth-child(4)::after { animation-delay: 1.5s; }
+.tile-shine:nth-child(5)::after { animation-delay: 2s; }
+.tile-shine:nth-child(6)::after { animation-delay: 2.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .play-pulse, .tile-shine::after { animation: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ico * {
+    animation: none !important;
+  }
+}
+
+/* keyboard path: clear focus rings only when navigating by keyboard */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[data-tile]:focus-visible {
+  outline: 3px solid #fde047;
+  outline-offset: 3px;
+  border-radius: 14px;
+}
