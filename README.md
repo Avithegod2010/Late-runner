@@ -1,12 +1,12 @@
 # Wrong Way Rider
 
-<p align="center">
-  <img src="docs/social-preview.png" alt="Wrong Way Rider — Wheel Lab, district previews and wheelie gameplay" width="720" />
-</p>
+Dodge oncoming traffic, catch air off ramps and chain near misses in a fast, endless bike runner. Play on your phone or computer.
 
-A pseudo-3D endless bike runner: you ride the wrong way down a highway, dodging and jumping oncoming traffic. It runs fully offline as one static `index.html`, with no backend and no tracking. Saves stay in the browser's `localStorage`.
+**[Play in browser](https://avithegod2010.github.io/Late-runner/)** · [Controls](#controls)
 
-![Demo](docs/demo.gif)
+![Wrong Way Rider gameplay](docs/demo.gif)
+
+Saves stay in your browser. The game also works offline after it loads.
 
 ## What's inside
 
