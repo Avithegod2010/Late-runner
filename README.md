@@ -1,14 +1,31 @@
-# Wrong Way Rider
+<div align="center">
 
-Dodge oncoming traffic, catch air off ramps and chain near misses in a fast, endless bike runner. Play on your phone or computer.
+<h1>Wrong Way Rider</h1>
 
-**[Play in browser](https://avithegod2010.github.io/Late-runner/)** · [Controls](#controls)
+<p><strong>Dodge oncoming traffic, jump ramps and chain near misses in an endless bike runner.</strong></p>
 
-![Wrong Way Rider gameplay](docs/demo.gif)
+<p><strong><a href="https://avithegod2010.github.io/Late-runner/">▶️ Play in your browser</a></strong> · <a href="#controls">🎮 Controls</a> · <a href="#screenshots">📸 Screenshots</a></p>
 
-Saves stay in your browser. The game also works offline after it loads.
+<img src="readme-hero.png" width="820" alt="An illustrated road disappearing into a sunset" />
 
-## What's inside
+</div>
+
+## 🏍️ Gameplay
+
+<p align="center">
+  <a href="https://avithegod2010.github.io/Late-runner/">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="docs/shots/gameplay.png" />
+      <img src="docs/demo.gif" width="820" alt="Wrong Way Rider gameplay showing the bike jumping and weaving through oncoming traffic" />
+    </picture>
+  </a>
+</p>
+
+Play on a phone or computer. Saves stay in the browser, and the game works offline after it loads.
+
+<a name="whats-inside"></a>
+
+## 🏁 What's inside
 
 - **Realistic wheelies** — hold `Q` (or the WHEELIE button): a torque burst lifts the front end, it settles at the balance point with a growing rider-correction wobble, and on release the nose drops under gravity, bounces on the front tyre and kicks up dust.
 - **Wheel Lab** (Garage) — 6 rim/tire styles (Sport, Mag 5, Disc, Neon, Knobby, Deep Dish) × 8 rim colors, previewed on a live spinning wheel rendered by the exact in-game renderer.
@@ -63,7 +80,9 @@ Everything is encoded into the URL. Nothing is stored on a server.
 | `?g=` | `?g=gHOAk…` | Ghost run to race. The best Classic ghost is sampled at 5 Hz into 2 bytes per sample, base64url, capped at 150 s (≈800 chars). Copy it from *Game over → Share ghost link*. |
 | `?mode=daily` | `?mode=daily` | Daily challenge deep link — opens straight into today's fixed-seed Daily run so friends ride the same road. |
 
-## Controls
+<a name="controls"></a>
+
+## 🎮 Controls
 
 ### Keyboard
 
@@ -144,7 +163,9 @@ On supported browsers, normal runs record the canvas at 30 fps. The recorder pre
 
 The ISO week key generates one fixed seed and two deterministic, non-conflicting modifiers. Each local profile gets three attempts per week; only its best score is retained under a separate `weekly:<week-key>` leaderboard. The **Daily** challenge works the same way with a fresh seed every day; after a daily run, *Challenge a Friend* copies a `?mode=daily` link with the same seed.
 
-## Screenshots
+<a name="screenshots"></a>
+
+## 📸 Screenshots
 
 | | |
 |---|---|
