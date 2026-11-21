@@ -6,8 +6,6 @@
 
 <p><strong><a href="https://avithegod2010.github.io/Late-runner/">▶️ Play in your browser</a></strong> · <a href="#controls">🎮 Controls</a> · <a href="#screenshots">📸 Screenshots</a></p>
 
-<img src="readme-hero.png" width="820" alt="An illustrated road disappearing into a sunset" />
-
 </div>
 
 ## 🏍️ Gameplay
