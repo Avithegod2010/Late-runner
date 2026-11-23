@@ -265,15 +265,6 @@ export const WarningIcon = ({ className = "", size = 24 }: P) => (
   </svg>
 );
 
-export const ConeIcon = ({ className = "", size = 24 }: P) => (
-  <svg {...base(size)} className={`ico ${className}`}>
-    <ellipse cx="24" cy="40" rx="16" ry="4" fill="currentColor" opacity="0.3" />
-    <path d="M24 6 36 40H12z" fill="#ff7a18" />
-    <path d="M18.5 23h11l1.6 5H16.9z" fill="#fff" />
-    <rect x="8" y="38" width="32" height="5" rx="2.5" fill="#ff7a18" />
-  </svg>
-);
-
 export const SkullIcon = ({ className = "", size = 24 }: P) => (
   <svg {...base(size)} className={`ico ${className}`}>
     <g className="ico-wobble">
@@ -306,17 +297,6 @@ export const NitroIcon = ({ className = "", size = 24 }: P) => (
   </svg>
 );
 
-export const MagnetIcon = ({ className = "", size = 24 }: P) => (
-  <svg {...base(size)} className={`ico ${className}`}>
-    <path d="M12 34V22a12 12 0 0 1 24 0v12" stroke="#22d3ee" strokeWidth="9" fill="none" />
-    <rect x="7" y="32" width="11" height="9" fill="#e2e8f0" />
-    <rect x="30" y="32" width="11" height="9" fill="#e2e8f0" />
-    <g className="ico-pulse-a">
-      <circle cx="24" cy="20" r="18" stroke="#67e8f9" strokeWidth="2" fill="none" opacity="0.6" />
-    </g>
-  </svg>
-);
-
 export const ShieldIcon = ({ className = "", size = 24 }: P) => (
   <svg {...base(size)} className={`ico ${className}`}>
     <path d="M24 5 41 12v13c0 10-7 17-17 21C14 42 7 35 7 25V12z" fill="url(#shG)" />
@@ -330,17 +310,6 @@ export const ShieldIcon = ({ className = "", size = 24 }: P) => (
         <stop offset="1" stopColor="#2563eb" />
       </linearGradient>
     </defs>
-  </svg>
-);
-
-export const ClockIcon = ({ className = "", size = 24 }: P) => (
-  <svg {...base(size)} className={`ico ${className}`}>
-    <circle cx="24" cy="26" r="17" stroke="currentColor" strokeWidth="4" fill="none" />
-    <path d="M18 5h12" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-    <g className="ico-spin-slow" style={{ transformOrigin: "24px 26px" }}>
-      <path d="M24 26V15" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
-    </g>
-    <path d="M24 26h8" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
   </svg>
 );
 
@@ -360,16 +329,6 @@ export const RampIcon = ({ className = "", size = 24 }: P) => (
     <path d="M8 40 36 18v22z" fill="currentColor" opacity="0.85" />
     <g className="ico-hop">
       <circle cx="34" cy="10" r="6" fill="#fbbf24" />
-    </g>
-  </svg>
-);
-
-export const TunnelIcon = ({ className = "", size = 24 }: P) => (
-  <svg {...base(size)} className={`ico ${className}`}>
-    <path d="M6 42V26a18 18 0 0 1 36 0v16" stroke="currentColor" strokeWidth="4" fill="none" />
-    <path d="M15 42V27a9 9 0 0 1 18 0v15" stroke="currentColor" strokeWidth="3" fill="none" opacity="0.6" />
-    <g className="ico-blink">
-      <circle cx="24" cy="30" r="4" fill="#fde68a" />
     </g>
   </svg>
 );
