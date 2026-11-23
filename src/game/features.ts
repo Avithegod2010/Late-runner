@@ -34,8 +34,6 @@ export const UPGRADE_TREE = [
   { id: "jump", name: "Suspension Kit", detail: "+8% jump height", max: 3, base: 700 },
 ] as const;
 
-export type UpgradeId = (typeof UPGRADE_TREE)[number]["id"];
-
 export interface SeasonDef {
   id: string;
   name: string;

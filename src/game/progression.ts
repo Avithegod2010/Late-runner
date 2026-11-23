@@ -547,16 +547,6 @@ export function sanitizeProfile(saved: unknown): Profile {
   return profile;
 }
 
-export function loadProfile(): Profile {
-  try {
-    const raw = localStorage.getItem(LS_PROFILE);
-    if (!raw) return structuredClone(EMPTY_PROFILE);
-    return sanitizeProfile(JSON.parse(raw));
-  } catch {
-    return structuredClone(EMPTY_PROFILE);
-  }
-}
-
 export function saveProfile(p: Profile) {
   try {
     localStorage.setItem(LS_PROFILE, JSON.stringify(p));
