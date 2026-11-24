@@ -38,8 +38,6 @@ export const COLLECTIBLES: CollectibleDef[] = [
   { id: "tn-ticket", worldId: "tokyo", name: "Last Train Ticket", hint: "Flutters by the torii gates", lore: "Stamped for a train that never came. The station became the district's first relay hub, ticket window and all." },
 ];
 
-export const COLLECTIBLES_PER_WORLD = 3;
-
 export function collectiblesForWorld(worldId: string): CollectibleDef[] {
   return COLLECTIBLES.filter((c) => c.worldId === worldId);
 }

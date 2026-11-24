@@ -136,11 +136,6 @@ export const SHORTCUTS: { id: string; name: string; from: string; to: string; re
 
 export const HQ_CONTRACT = { requireStars: 24, name: "Courier HQ", blurb: "Every contract starred. The city is yours — the HQ rooftop key is waiting." };
 
-export interface DistrictProgress {
-  /** stars per contract id */
-  stars: Record<string, number>;
-}
-
 /** Whether a district is currently unlocked given the star record. */
 export function districtUnlocked(d: DistrictDef, stars: Record<string, number>): boolean {
   const total = totalStars(stars);
