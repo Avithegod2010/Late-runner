@@ -101,31 +101,3 @@ export function personaById(id: string | undefined): RivalPersona {
 export function pickPersona(rand: () => number): RivalPersona {
   return RIVAL_PERSONAS[Math.floor(rand() * RIVAL_PERSONAS.length)];
 }
-
-/* ---------------- duel sprint personalities ---------------- */
-
-export interface DuelRivalBrain {
-  /** target lane bias: -1..1 where the AI likes to sit */
-  bias: number;
-  /** 0..1 how likely to hop early for jumpable cars */
-  jumper: number;
-  /** 0..1 how likely to dodge a full lane early for trucks */
-  truckDodge: number;
-}
-
-export function duelBrainFor(persona: RivalPersona): DuelRivalBrain {
-  switch (persona.id) {
-    case "risky":
-      return { bias: 0, jumper: 0.35, truckDodge: 0.55 }; // lives dangerously, late hops
-    case "careful":
-      return { bias: 0, jumper: 0.9, truckDodge: 0.95 }; // everything, early
-    case "drafter":
-      return { bias: 0, jumper: 0.65, truckDodge: 0.8 };
-    case "blocker":
-      return { bias: -0.6, jumper: 0.5, truckDodge: 0.45 }; // camps a lane, dares you around
-    case "sniper":
-      return { bias: 0.4, jumper: 0.75, truckDodge: 0.85 }; // clean lines, late savage cuts
-    case "turbo":
-      return { bias: -0.2, jumper: 0.6, truckDodge: 0.9 }; // full send down the open side
-  }
-}
