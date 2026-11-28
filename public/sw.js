@@ -1,7 +1,7 @@
 /* Offline-first service worker. The build is a single inlined HTML file,
    so caching the document is enough to run with no network. */
 
-const CACHE = "wwr-v7";
+const CACHE = "wwr-v8";
 const CORE = [
   "./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-maskable.svg",
   "./icons/icon-192.png", "./icons/icon-512.png", "./icons/icon-maskable-512.png", "./icons/apple-touch-icon.png",
